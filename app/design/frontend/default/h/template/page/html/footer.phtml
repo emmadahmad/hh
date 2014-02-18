@@ -1,0 +1,109 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div id="backtop">
+	<i class="fa fa-2x fa-chevron-up"></i>
+</div>
+<div id="facebook">
+	<a href="https://www.facebook.com/hafsaandhumafashionhouse" target="_blank"><i class="fa fa-2x fa-facebook"></i></a>
+</div>
+<div class="footer-upper">
+	<div class="container">
+		<div class="row newsletter-row text-center">
+			<div class="upper-col col-md-4">
+				<div class="block-title">
+					<i class="fa fa-3x fa-envelope"></i>
+			        <h3><strong>NEWSLETTER</strong></h3>
+			    </div>
+				<?php echo $this->getLayout()->createBlock('newsletter/subscribe')->setTemplate('newsletter/subscribe-foot.phtml')->toHtml(); ?>
+			</div>
+			<div class="upper-col col-md-4">
+				<div class="block-title">
+			        <i class="fa fa-3x fa-truck"></i>
+			        <h3><strong>FREE SHIPPING</strong></h3>
+			        <h4>ON 2 OR MORE PRODUCTS</h4>
+			    </div>
+			</div>
+			<div class="upper-col col-md-4">
+				<div class="block-title">
+					<i class="fa fa-3x fa-phone"></i>
+			        <h3><strong>CALL US</strong></h3>
+			        <h4>0092-321-446-1036</h4>
+			        <h4>0092-323-430-3306</h4>
+			    </div>
+			</div>
+		</div>
+	</div>	
+</div>
+
+<footer>
+	<div class="footer-container container">		
+		<div class="row links-row">
+			<div class="col-md-3">
+				<h4><strong>CONTACT US</strong></h4>
+				<ul class="list-unstyled">
+					<li>
+						<i class="icon-small fa fa-phone"></i>0092-321-446-1036
+					</li>
+					<li>
+						<i class="icon-small fa fa-phone"></i>0092-323-430-3306
+					</li>
+					<li>
+						<i class="icon-small fa fa-envelope"></i>support@hafsahuma.com
+					</li>
+				</ul>				
+			</div>
+			<div class="col-md-3">
+				<h4><strong>FOLLOW US</strong></h4>
+				<ul class="sm-list list-inline">
+					<li><a href="https://www.facebook.com/hafsaandhumafashionhouse"><i class="sm-icons fa fa-lg fa-facebook"></i></a></li>
+					<li><a href="#"><i class="sm-icons fa fa-lg fa-twitter"></i></a></li>
+					<li><a href="mailto:support@hafsahuma.com"><i class="sm-icons fa fa-lg fa-envelope"></i></a></li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<h4><strong>ABOUT</strong></h4>
+				<ul class="list-unstyled">
+					<li><a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>store/about-us/"><i class="link-icon fa fa-angle-right"></i>About Us</a></li>
+					<li><a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>store/customer-service/"><i class="link-icon fa fa-angle-right"></i>Customer Service</a></li>
+					<li><a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>store/privacy-policy/"><i class="link-icon fa fa-angle-right"></i>Privacy Policy</a></li>
+					<li><a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>store/catalog/seo_sitemap/category"><i class="link-icon fa fa-angle-right"></i>Sitemap</a></li>
+					<li><a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>store/contacts/"><i class="link-icon fa fa-angle-right"></i>Contact Us</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<h4><strong>INFORMATION</strong></h4>
+				<ul class="list-unstyled">
+					<li><a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>store/sales/guest/form/"><i class="link-icon fa fa-angle-right"></i>Track Your Order</a></li>
+					<li><a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>store/catalogsearch/term/popular/"><i class="link-icon fa fa-angle-right"></i>Search Terms</a></li>
+					<li><a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>store/catalogsearch/advanced/"><i class="link-icon fa fa-angle-right"></i>Advanced Search</a></li>
+					<li><a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>store/delivery-return-policy/"><i class="link-icon fa fa-angle-right"></i>Delivery and Return Policy</a></li>
+				</ul>
+			</div>			
+		</div>
+        <div class="copyright text-center"><?php echo $this->getCopyright() ?></div>
+	</div>
+</footer>

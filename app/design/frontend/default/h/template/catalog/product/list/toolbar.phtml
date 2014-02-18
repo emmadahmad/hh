@@ -1,0 +1,123 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Product list toolbar
+ *
+ * @see Mage_Catalog_Block_Product_List_Toolbar
+ */
+?>
+<?php if($this->getCollection()->getSize()): ?>
+<ul class="toolbar list-inline clearfix">
+    <?php if( $this->isExpanded() ): ?>
+    <li class="pull-left">
+	    <ul class="sorter list-inline pull-left">
+	        <?php if( $this->isEnabledViewSwitcher() ): ?>
+	        <li class="view-mode">
+	            <?php $_modes = $this->getModes(); ?>
+	            <?php if($_modes && count($_modes)>1): ?>
+	            <?php foreach ($this->getModes() as $_code=>$_label): ?>
+	                <?php if(strtolower($_code) == "grid"): ?>
+	                	<?php if($this->isModeActive($_code)): ?>
+	                		<i class="fa fa-th view-as <?php echo strtolower($_code); ?>"></i>&nbsp;
+	                	<?php else: ?>
+	                	 	<a href="<?php echo $this->getModeUrl($_code) ?>" title="<?php echo $_label ?>" class="<?php echo strtolower($_code); ?>"><i class="fa fa-th view-as <?php echo strtolower($_code); ?>"></i></a>&nbsp;
+						<?php endif; ?>
+					<?php elseif(strtolower($_code) == "list"): ?>
+	                    <?php if($this->isModeActive($_code)): ?>
+	                		<i class="fa fa-list-ul view-as <?php echo strtolower($_code); ?>"></i>&nbsp;
+	                	<?php else: ?>
+	                	 	<a href="<?php echo $this->getModeUrl($_code) ?>" title="<?php echo $_label ?>" class="<?php echo strtolower($_code); ?>"><i class="fa fa fa-list-ul view-as <?php echo strtolower($_code); ?>"></i></a>&nbsp;
+						<?php endif; ?>
+					<?php else: ?>
+						<?php if($this->isModeActive($_code)): ?>                    
+		                    <strong title="<?php echo $_label ?>" class="<?php echo strtolower($_code); ?>"><?php echo $_label ?></strong>&nbsp;
+		                <?php else: ?>
+	                    	<a href="<?php echo $this->getModeUrl($_code) ?>" title="<?php echo $_label ?>" class="<?php echo strtolower($_code); ?>"><?php echo $_label ?></a>&nbsp;
+	                	<?php endif; ?>
+	                <?php endif; ?>
+	            <?php endforeach; ?>
+	            <?php endif; ?>
+	        </li>
+	        <?php endif; ?>
+	    
+	        <li class="sort-by">
+	        	<ul class="list-inline">
+	        		<li><label><?php echo $this->__('Sort') ?></label></li>
+	        		<li>
+	        			<select class="input-sm" onchange="setLocation(this.value)">
+			            <?php foreach($this->getAvailableOrders() as $_key=>$_order): ?>
+			                <option value="<?php echo $this->getOrderUrl($_key, 'asc') ?>"<?php if($this->isOrderCurrent($_key)): ?> selected="selected"<?php endif; ?>>
+			                    <?php echo $this->__($_order) ?>
+			                </option>
+			            <?php endforeach; ?>
+			            </select>
+	        		</li>
+	        		<li>
+	        			<?php if($this->getCurrentDirection() == 'desc'): ?>
+			                <a href="<?php echo $this->getOrderUrl(null, 'asc') ?>" title="<?php echo $this->__('Set Ascending Direction') ?>"><i class="fa fa-sort-alpha-asc"></i></a>
+			            <?php else: ?>
+			                <a href="<?php echo $this->getOrderUrl(null, 'desc') ?>" title="<?php echo $this->__('Set Descending Direction') ?>"><i class="fa fa-sort-alpha-desc"></i></a>
+			            <?php endif; ?>
+	        		</li>
+	        	</ul>
+	        </li>
+	    </ul>
+    </li>
+    <?php endif; ?>
+    	<li class="pull-right">
+	    <ul class="pager-list list-inline">
+	        <li class="amount">
+	            <?php if($this->getLastPageNum()>1): ?>
+	                <?php echo $this->__('Items %s to %s of %s total', $this->getFirstNum(), $this->getLastNum(), $this->getTotalNum()) ?>
+	            <?php else: ?>
+	                <strong><?php echo $this->__('%s Item(s)', $this->getTotalNum()) ?></strong>
+	            <?php endif; ?>
+	        </li>
+	
+	        <li class="limiter">
+	        	<ul class="list-inline">
+	        		<li><label><?php echo $this->__('Show') ?></label></li>
+	        		<li>
+	        			<select class="input-sm" onchange="setLocation(this.value)">
+			            <?php foreach ($this->getAvailableLimit() as  $_key=>$_limit): ?>
+			                <option value="<?php echo $this->getLimitUrl($_key) ?>"<?php if($this->isLimitCurrent($_key)): ?> selected="selected"<?php endif ?>>
+			                    <?php echo $_limit ?>
+			                </option>
+			            <?php endforeach; ?>
+			            </select> 
+	        		</li>
+	        		<li><?php echo $this->__('per page') ?></li>        	
+	        	</ul>
+	        </li>
+			<li>
+	        	<?php echo $this->getPagerHtml() ?>
+			</li>
+	    </ul>
+    </li>
+</ul>
+<?php endif ?>

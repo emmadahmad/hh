@@ -1,0 +1,79 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<header>
+	<nav class="navbar top-bar navbar-default navbar-static-top clearfix" role="navigation">
+		<div class="container">
+			<ul class="pull-left list-inline">
+				<li class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?><?php echo $this->getAdditionalHtml() ?></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle"	data-toggle="dropdown">
+						PKR&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="#">PKR</a></li>
+						<li><a href="#">USD</a></li>
+						<li><a href="#">EURO</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					ENGLISH&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a href="#">FRENCH</a></li>
+						<li><a href="#">GERMAN</a></li>
+					</ul>
+				</li>
+			</ul>
+			<?php echo $this->getChildHtml('topLinks') ?>
+		</div>
+	</nav>	
+	<div class="logo container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3">
+				<h1 class="logo-text"><strong><?php echo $this->getLogoAlt() ?></strong></h1>
+				<a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo">
+					<img class="img-resp visible-md visible-lg" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+        			<img class="img-resp hidden-md hidden-lg hidden-xs" src="<?php echo $this->getSkinUrl() ?>images/logo-short.svg" alt="<?php echo $this->getLogoAlt() ?>" />
+        			<img class="visible-xs logo-xs" src="<?php echo $this->getSkinUrl() ?>images/logo-short-xs.svg" alt="<?php echo $this->getLogoAlt() ?>" />
+				</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="cart-header-block">
+					<div class="pull-right cart-icon"><i class="fa fa-2x fa-shopping-cart pull-left"></i></div>
+					<div class="cart-title pull-right"><?php echo $this->getChildHtml('cart_sidebar') ?></div>
+				</div>				
+			</div>
+		</div>
+	</div>
+</header>
+<?php echo $this->getChildHtml('topMenu') ?>
